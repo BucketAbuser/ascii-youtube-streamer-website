@@ -64,11 +64,17 @@ b) Using **wget**:
 
 **Parameters**:
     - yt_url (Optional): The URL of the YouTube video you want to convert.
+
+    - yt_search (Optional): Not implemented yet.
+
     - color (Optional): Enable color in the ASCII output. Accepts 'true', '1', 'yes', 'on'. Default is 'false'.
+
     - width (Optional): Change the width of the ASCII video in characters. Must be an integer between 20 and 600. Default is 90.
+
 
 Examples with **curl**:
     curl 'http://localhost:5000/?yt_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+
     curl 'http://localhost:5000/?yt_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&color=true&width=100'
 
 3. **View Help Instructions**:
