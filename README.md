@@ -33,8 +33,8 @@
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/BucketAbuser/ascii-youtube-streamer-website.git
-   cd ascii-youtube-streamer-website```
+   git clone https://github.com/michal-pielka/ascii-youtube-streamer-website.git
+   cd ascii-youtube-streamer-website
 
 2. **Create a Virtual Environment (Optional but Recommended)**:
     ```
