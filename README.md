@@ -84,6 +84,7 @@ Examples with **curl**:
 If you access the root URL without any parameters, the application will display a help message detailing how to use the service.
 
 Example with **curl**:
+
     curl 'http://localhost:5000/'
 
 4. **Stream the ASCII Video**:
