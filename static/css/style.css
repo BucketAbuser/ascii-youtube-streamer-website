@@ -1,0 +1,77 @@
+body {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.terminal {
+    background-color: #000000;
+    border: 5px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    width: 80%;
+    height: auto;
+    overflow: visible;
+    box-shadow: 0 0 20px #00ff00;
+    position: relative;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.terminal-header {
+    background-color: #111;
+    padding: 5px 10px;
+    border-bottom: 2px solid #00ff00;
+    color: #00ff00;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    margin: -20px -20px 20px -20px;
+}
+
+.terminal-window {
+    overflow-y: visible;
+    position: relative;
+}
+
+.output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 5px;
+}
+
+.input-area {
+    display: inline-block;
+    color: #ffffff;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #00ff00;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    height: 18px;
+    vertical-align: bottom;
+}

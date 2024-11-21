@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASCII Video Help</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">terminal</div>
+        <div class="terminal-window" id="terminal-window">
+            <!-- Initial command line -->
+            <div class="command-line" id="initial-command-line">
+                <span class="prompt">$</span>
+                <span class="input-area" id="input-area"></span><span class="cursor" id="cursor"></span>
+            </div>
+            <!-- Output area for help message -->
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        // Typing animation for the command
+        const commandText = "curl 'website.com/help'";
+        const inputArea = document.getElementById('input-area');
+        const outputArea = document.getElementById('output');
+        const cursor = document.getElementById('cursor');
+        const terminalWindow = document.getElementById('terminal-window');
+        const initialCommandLine = document.getElementById('initial-command-line');
+
+        let commandIndex = 0;
+        const typingSpeed = 175; // milliseconds between characters
+
+        function typeCommand() {
+            if (commandIndex < commandText.length) {
+                inputArea.textContent += commandText.charAt(commandIndex);
+                commandIndex++;
+                setTimeout(typeCommand, typingSpeed);
+            } else {
+                // After typing the command, start displaying the help message
+                cursor.style.display = 'none';
+                displayHelpMessage();
+            }
+        }
+
+        // Scrolling text animation for the help message
+        const helpMessageLines = `{{ help_message | safe }}`.split('\n');
+        let lineIndex = 0;
+
+        function displayHelpMessage() {
+            if (lineIndex < helpMessageLines.length) {
+                outputArea.innerHTML += helpMessageLines[lineIndex] + '\n';
+                lineIndex++;
+                setTimeout(displayHelpMessage, 50); // Adjust speed as needed
+            } else {
+                // After displaying the help message, create a new command line at the bottom
+                createNewCommandLine();
+            }
+        }
+
+        function createNewCommandLine() {
+            // Create new command line elements
+            const newCommandLine = document.createElement('div');
+            newCommandLine.classList.add('command-line');
+
+            const newPrompt = document.createElement('span');
+            newPrompt.classList.add('prompt');
+            newPrompt.textContent = '$';
+
+            const newInputArea = document.createElement('span');
+            newInputArea.classList.add('input-area');
+
+            const newCursor = document.createElement('span');
+            newCursor.classList.add('cursor');
+
+            // Append elements to the new command line
+            newCommandLine.appendChild(newPrompt);
+            newCommandLine.appendChild(newInputArea);
+            newCommandLine.appendChild(newCursor);
+
+            // Append the new command line to the terminal window
+            terminalWindow.appendChild(newCommandLine);
+
+            // Scroll to the bottom of the terminal window
+            terminalWindow.scrollTop = terminalWindow.scrollHeight;
+        }
+
+        // Start the typing animation when the page loads
+        window.onload = typeCommand;
+    </script>
+</body>
+</html>
