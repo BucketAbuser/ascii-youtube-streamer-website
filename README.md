@@ -63,6 +63,7 @@ b) Using **wget**:
     wget -qO- 'http://localhost:5000/?yt_url=<YouTube_URL>&color=<true|false>&width=<integer>'
 
 **Parameters**:
+
     - yt_url (Optional): The URL of the YouTube video you want to convert.
 
     - yt_search (Optional): Not implemented yet.
@@ -73,6 +74,7 @@ b) Using **wget**:
 
 
 Examples with **curl**:
+
     curl 'http://localhost:5000/?yt_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 
     curl 'http://localhost:5000/?yt_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&color=true&width=100'
